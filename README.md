@@ -1,4 +1,38 @@
-# OS X templates for Packer and VeeWee
+# Packer Templates for MobilityWare Build VMs
+
+
+This repo contains a set of packer templates and associated scripts to construct VM images for various build agents for TeamCity with a variety of associated build tools.
+
+## Usage
+
+To build a VM for a specific build configuration :
+
+```sh
+cd packer
+packer build <template_name>
+```
+
+Each template will fetch the necessary operating system images, tools, etc either from their original locations or from caches.
+
+The output of the builds will be stored in the `../artifacts` directory as well as uploaded to S3. From there, they can be deployed to one of a variety of hypervisors.
+
+## List of Supported Environments
+
+The standard names for packers is '<top_level_os>-<compiler1>-<compiler2|opt>-<number>.json'. The names are not intended to convey everything about what is included. Rather they are a hint. The packer file itself is most informative. The list below covers a few more details.
+
+* `osx-xcode-unity-1.json` 
+	* OSX El Capitan 10.11.1_15B42
+	* Unity-5.2.2f1
+	* Xcode 7.1.1
+* `osx-xcode-1.json` 
+	* OSX El Capitan 10.11.1_15B42
+	* Xcode 6.4
+
+## Acknowledgments
+
+This repo was originally cloned from [Tim Sutton's](https://github.com/timsutton/osx-vm-templates).
+
+# Original Documentation : OS X templates for Packer and VeeWee
 
 This is a set of Packer templates and support scripts that will prepare an OS X installer media that performs an unattended install for use with [Packer](http://packer.io) and [VeeWee](http://github.com/jedi4ever/veewee). These were originally developed for VeeWee, but support for the VeeWee template has not been maintained since Packer's release and so it is only provided for historical purposes. I plan on removing VeeWee support from this repo soon, but VeeWee can still make use of the preparation script and the [OS X template](https://github.com/jedi4ever/veewee/tree/master/templates/OSX) remains in the core VeeWee repo.
 

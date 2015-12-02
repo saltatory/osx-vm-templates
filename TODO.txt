@@ -1,0 +1,7 @@
+TODO
+====
+
+* Upload large files out of the input directory to S3 and download during build
+* Upload resulting images to S3 for installation on various machines
+* Do we need to install the iPhone simulators? For UI Automation testing?
+* Replace Tim's SSH keys for Vagrant 
