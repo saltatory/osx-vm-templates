@@ -103,8 +103,8 @@
   ],
   "provisioners": [
     {
-      "destination": "/private/tmp/vagrant.pub",
-      "source": "../ssh/vagrant.pub",
+      "destination": "/private/tmp/",
+      "source": "../ssh/",
       "type": "file"
     },
     {
@@ -126,6 +126,7 @@
       "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
       "scripts": [
         "../scripts/vagrant.sh",
+        "../scripts/ssh.sh",
         "../scripts/vmware.sh",
         "../scripts/parallels.sh",
         "../scripts/xcode.sh",
